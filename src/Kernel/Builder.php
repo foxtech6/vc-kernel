@@ -2,7 +2,7 @@
 
 namespace Foxtech\Kernel;
 
-use Kernel\Exceptions\NotFoundException;
+use Foxtech\Kernel\Exceptions\NotFoundException;
 use Throwable;
 
 /**

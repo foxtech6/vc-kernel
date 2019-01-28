@@ -3,7 +3,7 @@
 namespace Foxtech\Kernel;
 
 use LogicException;
-use Kernel\Exceptions\NotFoundException;
+use Foxtech\Kernel\Exceptions\NotFoundException;
 use ReflectionException;
 use InvalidArgumentException;
 

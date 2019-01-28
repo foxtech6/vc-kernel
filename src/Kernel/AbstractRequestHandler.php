@@ -2,8 +2,8 @@
 
 namespace Foxtech\Kernel;
 
-use Kernel\Exceptions\NotFoundException;
-use Kernel\Validators\{ValidatorInterface, IntValidator, MaxValidator, MinValidator};
+use Foxtech\Kernel\Exceptions\NotFoundException;
+use Foxtech\Kernel\Validators\{ValidatorInterface, IntValidator, MaxValidator, MinValidator};
 use InvalidArgumentException;
 use LogicException;
 
