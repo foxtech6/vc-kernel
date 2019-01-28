@@ -1,0 +1,19 @@
+{
+    "name": "foxtech6/vc-kernel",
+    "description": "Kernel for vs framework",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mike",
+            "email": "bavdysmyh@ukr.net"
+        }
+    ],
+    "require": {
+        "php" : "^7.1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Foxtech\\": "src"
+        }
+    }
+}
