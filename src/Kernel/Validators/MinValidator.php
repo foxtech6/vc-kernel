@@ -18,7 +18,7 @@ class MinValidator implements ValidatorInterface
     {
         $min = substr($rule, strpos($rule, ':') + 1);
 
-        if ($value < $min) {
+        if ($value <= $min) {
             return 'Youre number down ' . $min;
         }
 
