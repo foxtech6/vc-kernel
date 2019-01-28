@@ -18,7 +18,7 @@ class MaxValidator implements ValidatorInterface
     {
         $max = substr($rule, strpos($rule, ':') + 1);
 
-        if ($value >= $max) {
+        if ($value > $max) {
             return 'Youre number up ' . $max;
         }
 

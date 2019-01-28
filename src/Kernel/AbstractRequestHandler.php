@@ -3,7 +3,7 @@
 namespace Foxtech\Kernel;
 
 use Foxtech\Kernel\Exceptions\NotFoundException;
-use Foxtech\Kernel\Validators\{ValidatorInterface, IntValidator, MaxValidator, MinValidator};
+use Foxtech\Kernel\Validators\{NumberValidator, ValidatorInterface, MaxValidator, MinValidator};
 use InvalidArgumentException;
 use LogicException;
 
@@ -35,7 +35,7 @@ abstract class AbstractRequestHandler
      * @var array
      */
     private $validators = [
-        'int' => IntValidator::class,
+        'number' => NumberValidator::class,
         'max' => MaxValidator::class,
         'min' => MinValidator::class,
     ];
