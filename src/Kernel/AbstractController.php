@@ -42,9 +42,10 @@ abstract class AbstractController
      * @param string $view   Params send to view
      * @param array  $params Which view include
      *
+     * @return self Return controller object
      * @throws NotFoundException
      */
-    public function render(string $view, array $params = [])
+    public function render(string $view, array $params = []): self
     {
 
         $this->view = sprintf(self::VIEW_PATH, $view);
@@ -54,6 +55,20 @@ abstract class AbstractController
         }
 
         $this->params = $params;
+
+        return $this;
+    }
+
+    /**
+     * Get error to view
+     * 
+     * @param AbstractRequestHandler $request Validator where isset error
+     */
+    public function withErrors(AbstractRequestHandler $request)
+    {
+        if ($request->getErrors()) {
+            $this->params['errors'] = $request->getErrors();
+        }
     }
 
     /**

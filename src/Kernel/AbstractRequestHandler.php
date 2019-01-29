@@ -3,9 +3,8 @@
 namespace Foxtech\Kernel;
 
 use Foxtech\Kernel\Exceptions\NotFoundException;
-use Foxtech\Kernel\Validators\{NumberValidator, ValidatorInterface, MaxValidator, MinValidator};
+use Foxtech\Kernel\Validators\{NumberValidator, RequiredValidator, ValidatorInterface, MaxValidator, MinValidator};
 use InvalidArgumentException;
-use LogicException;
 
 /**
  * Class AbstractRequestHandler
@@ -30,14 +29,22 @@ abstract class AbstractRequestHandler
     protected $paramsValue = [];
 
     /**
+     * Error messages
+     *
+     * @var array
+     */
+    protected $messages = [];
+
+    /**
      * Validators for params
      *
      * @var array
      */
-    private $validators = [
+    protected $validators = [
         'number' => NumberValidator::class,
         'max' => MaxValidator::class,
         'min' => MinValidator::class,
+        'required' => RequiredValidator::class
     ];
 
     /**
@@ -83,6 +90,16 @@ abstract class AbstractRequestHandler
     }
 
     /**
+     * Getter for error
+     *
+     * @return array Return errors
+     */
+    public function getErrors(): array 
+    {
+        return $this->messages;
+    }
+
+    /**
      * List rules for params
      *
      * @return array Rules for params
@@ -99,8 +116,6 @@ abstract class AbstractRequestHandler
      */
     private function checkParams(string $name, $value): void
     {
-        $messages = [];
-
         foreach (explode('|', $this->rules()[$name]) as $rule) {
 
             $ruleName = $rule;
@@ -117,12 +132,8 @@ abstract class AbstractRequestHandler
             $validator = new $this->validators[$ruleName]();
 
             if ($message = $validator->validate($value, $rule)) {
-                $messages[] = $message;
+                $this->messages[] = $message;
             }
-        }
-
-        if (count($messages) > 0) {
-            throw new LogicException(implode(', ', $messages));
         }
     }
 }
