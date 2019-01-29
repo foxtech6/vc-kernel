@@ -53,7 +53,7 @@ class Builder
 
             $this->callController($controller, $action, $requestHandler);
         } catch (Throwable $e) {
-            //TODO 404 page
+            (new NotFoundController())->index();
         }
     }
 

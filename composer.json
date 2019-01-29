@@ -2,6 +2,7 @@
     "name": "foxtech6/vc-kernel",
     "description": "Kernel for vs framework",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Mike",
