@@ -75,6 +75,7 @@ class Builder
             $requestHandler->handle();
 
             (new $controllerName())->{$actionName}($requestHandler);
+            return;
         }
 
         (new $controllerName())->{$actionName}();
