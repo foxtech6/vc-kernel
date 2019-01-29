@@ -47,7 +47,6 @@ abstract class AbstractController
      */
     public function render(string $view, array $params = []): self
     {
-
         $this->view = sprintf(self::VIEW_PATH, $view);
 
         if (!is_readable($this->view)) {
@@ -61,7 +60,7 @@ abstract class AbstractController
 
     /**
      * Get error to view
-     * 
+     *
      * @param AbstractRequest $request Validator where isset error
      */
     public function withErrors(AbstractRequest $request): void

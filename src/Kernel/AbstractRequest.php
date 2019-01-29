@@ -3,7 +3,11 @@
 namespace Foxtech\Kernel;
 
 use Foxtech\Kernel\Exceptions\NotFoundException;
-use Foxtech\Kernel\Validators\{NumberValidator, RequiredValidator, ValidatorInterface, MaxValidator, MinValidator};
+use Foxtech\Kernel\Validators\NumberValidator;
+use Foxtech\Kernel\Validators\RequiredValidator;
+use Foxtech\Kernel\Validators\ValidatorInterface;
+use Foxtech\Kernel\Validators\MaxValidator;
+use Foxtech\Kernel\Validators\MinValidator;
 use InvalidArgumentException;
 
 /**
@@ -94,7 +98,7 @@ abstract class AbstractRequest
      *
      * @return array Return errors
      */
-    public function getErrors(): array 
+    public function getErrors(): array
     {
         return $this->messages;
     }
@@ -117,7 +121,6 @@ abstract class AbstractRequest
     private function checkParams(string $name, $value): void
     {
         foreach (explode('|', $this->rules()[$name]) as $rule) {
-
             $ruleName = $rule;
 
             if (false !== ($pos = strpos($rule, ':'))) {
