@@ -4,7 +4,14 @@ namespace Foxtech\Kernel;
 
 use Foxtech\Kernel\Exceptions\NotFoundException;
 use InvalidArgumentException;
-use Foxtech\Kernel\Validators\{ValidatorInterface, NumberValidator, RequiredValidator, MaxValidator, MinValidator};
+use Foxtech\Kernel\Validators\{
+    FloatValidator,
+    IntValidator,
+    ValidatorInterface,
+    RequiredValidator,
+    MaxValidator,
+    MinValidator
+};
 
 /**
  * Class AbstractRequest
@@ -41,10 +48,11 @@ abstract class AbstractRequest
      * @var array
      */
     protected $validators = [
-        'number' => NumberValidator::class,
+        'int' => IntValidator::class,
+        'float' => FloatValidator::class,
         'max' => MaxValidator::class,
         'min' => MinValidator::class,
-        'required' => RequiredValidator::class
+        'required' => RequiredValidator::class,
     ];
 
     /**
@@ -130,7 +138,7 @@ abstract class AbstractRequest
             /* @var $validator ValidatorInterface */
             $validator = new $this->validators[$ruleName]();
 
-            if ($message = $validator->validate($value, $rule)) {
+            if ($message = $validator->validate($value, $name, $rule)) {
                 $this->messages[] = $message;
             }
         }

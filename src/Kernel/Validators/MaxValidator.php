@@ -14,12 +14,12 @@ class MaxValidator implements ValidatorInterface
      * {@inheritdoc}
      * @see ValidatorInterface::validate()
      */
-    public function validate($value, string $rule): ?string
+    public function validate($value, string $name, string $rule): ?string
     {
         $max = substr($rule, strpos($rule, ':') + 1);
 
         if ($value > $max) {
-            return 'Youre number up ' . $max;
+            return 'The ' . $name . ' parameter should be greater than ' . $max;
         }
 
         return null;

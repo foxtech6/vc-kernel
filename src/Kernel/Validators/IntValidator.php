@@ -3,12 +3,12 @@
 namespace Foxtech\Kernel\Validators;
 
 /**
- * Class RequiredValidator
+ * Class IntValidator
  *
  * @author Mykhailo Bavdys <bavdysmyh@ukr.net>
  * @since 29.01.2019
  */
-class RequiredValidator implements ValidatorInterface
+class IntValidator implements ValidatorInterface
 {
     /**
      * {@inheritdoc}
@@ -16,8 +16,8 @@ class RequiredValidator implements ValidatorInterface
      */
     public function validate($value, string $name, string $rule): ?string
     {
-        if (!$value) {
-            return 'Param is ' . $name . ' required';
+        if (false !== strpos('.', $value) || !is_numeric($value)) {
+            return 'Param ' . $name . ' is not int';
         }
 
         return null;

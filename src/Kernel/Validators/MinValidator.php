@@ -14,12 +14,12 @@ class MinValidator implements ValidatorInterface
      * {@inheritdoc}
      * @see ValidatorInterface::validate()
      */
-    public function validate($value, string $rule): ?string
+    public function validate($value, string $name, string $rule): ?string
     {
         $min = substr($rule, strpos($rule, ':') + 1);
 
         if ($value < $min) {
-            return 'Youre number down ' . $min;
+            return 'Parameter ' . $name . ' should be less than' . $min;
         }
 
         return null;

@@ -14,8 +14,10 @@ interface ValidatorInterface
      * Validate for parameter
      *
      * @param mixed  $value Parameter value
+     * @param string $name  Parameter name
      * @param string $rule  Rule for parameter
+     * 
      * @return string Return text if param not passed rules
      */
-    public function validate($value, string $rule): ?string;
+    public function validate($value, string $name, string $rule): ?string;
 }
