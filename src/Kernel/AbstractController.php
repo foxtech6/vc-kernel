@@ -73,12 +73,20 @@ abstract class AbstractController
 
     /**
      * Controller destructor
+     * include view
      */
     public function __destruct()
     {
-        extract($this->params);
+        if ($this->params) {
+            extract($this->params);
+        }
+
         require_once self::LAYOUT_PATH . 'header.html';
-        require_once $this->view;
+
+        if ($this->view) {
+            require_once $this->view;
+        }
+
         require_once self::LAYOUT_PATH . 'footer.html';
     }
 }
