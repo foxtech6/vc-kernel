@@ -16,7 +16,7 @@ class IntValidator implements ValidatorInterface
      */
     public function validate($value, string $name, string $rule): ?string
     {
-        if (false !== strpos('.', $value) || !is_numeric($value)) {
+        if (false !== strpos($value, '.') || !is_numeric($value)) {
             return 'Param ' . $name . ' is not int';
         }
 
