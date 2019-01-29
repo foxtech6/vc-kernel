@@ -3,6 +3,7 @@
 namespace Foxtech\Kernel;
 
 use Foxtech\Kernel\Exceptions\NotFoundException;
+use Foxtech\Kernel\SystemControllers\NotFoundController;
 use Throwable;
 
 /**
@@ -69,7 +70,7 @@ class Builder
     private function callController(string $controllerName, string $actionName, string $requestHandler = null): void
     {
         if ($requestHandler) {
-            /* @var $requestHandler AbstractRequestHandler */
+            /* @var $requestHandler AbstractRequest */
             $requestHandler = new $requestHandler($this->requestMapper->getParams());
             $requestHandler->handle();
 

@@ -7,12 +7,12 @@ use Foxtech\Kernel\Validators\{NumberValidator, RequiredValidator, ValidatorInte
 use InvalidArgumentException;
 
 /**
- * Class AbstractRequestHandler
+ * Class AbstractRequest
  *
  * @author Mykhailo Bavdys <bavdysmyh@ukr.net>
  * @since 27.01.2019
  */
-abstract class AbstractRequestHandler
+abstract class AbstractRequest
 {
     /**
      * All params from client

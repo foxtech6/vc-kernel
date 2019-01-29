@@ -1,7 +1,8 @@
 <?php
 
-namespace Foxtech\Kernel;
+namespace Foxtech\Kernel\SystemControllers;
 
+use Foxtech\Kernel\AbstractController;
 use Foxtech\Kernel\Exceptions\NotFoundException;
 
 /**

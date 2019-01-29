@@ -39,10 +39,10 @@ class Route
      */
     public function add(string $route, string $controller): void
     {
-        //TODO
-//        if (!preg_match('/^[a-z][0-9][/]+$/', $route)) {
-//            throw new \Exception('Bad route');
-//        }
+        // TODO
+        //if (!preg_match('/^[a-z][0-9][/]+$/', $route)) {
+        //    throw new \Exception('Bad route');
+        //}
 
         $controllerParams = explode('@', $controller);
 
