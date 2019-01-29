@@ -3,12 +3,8 @@
 namespace Foxtech\Kernel;
 
 use Foxtech\Kernel\Exceptions\NotFoundException;
-use Foxtech\Kernel\Validators\NumberValidator;
-use Foxtech\Kernel\Validators\RequiredValidator;
-use Foxtech\Kernel\Validators\ValidatorInterface;
-use Foxtech\Kernel\Validators\MaxValidator;
-use Foxtech\Kernel\Validators\MinValidator;
 use InvalidArgumentException;
+use Foxtech\Kernel\Validators\{ValidatorInterface, NumberValidator, RequiredValidator, MaxValidator, MinValidator};
 
 /**
  * Class AbstractRequest
