@@ -18,7 +18,7 @@ class NotFoundController extends AbstractController
      *
      * @throws NotFoundException
      */
-    public function index()
+    public function index(): void
     {
         $this->render('404');
     }

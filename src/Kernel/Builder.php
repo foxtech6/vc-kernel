@@ -43,7 +43,7 @@ class Builder
     /**
      * Build all applications
      */
-    public function build()
+    public function build(): void
     {
         try {
             $controllerParams = $this->route->getController($this->requestMapper->getClientRoute());

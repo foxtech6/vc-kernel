@@ -78,7 +78,7 @@ abstract class AbstractRequest
      *
      * @throws NotFoundException
      */
-    public function handle()
+    public function handle(): void
     {
         foreach ($this->params as $name => $value) {
             if (isset($this->rules()[$name])) {

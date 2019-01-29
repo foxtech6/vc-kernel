@@ -64,7 +64,7 @@ abstract class AbstractController
      * 
      * @param AbstractRequest $request Validator where isset error
      */
-    public function withErrors(AbstractRequest $request)
+    public function withErrors(AbstractRequest $request): void
     {
         if ($request->getErrors()) {
             $this->params['errors'] = $request->getErrors();
