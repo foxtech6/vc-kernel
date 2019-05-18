@@ -37,6 +37,13 @@ abstract class AbstractController
     private $view;
 
     /**
+     * Show if request is ajax
+     *
+     * @var bool
+     */
+    private $isAjax;
+
+    /**
      * View render
      *
      * @param string $view   Params send to view
@@ -59,6 +66,14 @@ abstract class AbstractController
     }
 
     /**
+     * Set request is ajax
+     */
+    public function isAjax(): void
+    {
+        $this->isAjax = true;
+    }
+
+    /**
      * Get error to view
      *
      * @param AbstractRequest $request Validator where isset error
@@ -76,6 +91,10 @@ abstract class AbstractController
      */
     public function __destruct()
     {
+        if ($this->isAjax) {
+            return;
+        }
+
         if ($this->params) {
             extract($this->params);
         }
