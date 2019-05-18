@@ -66,6 +66,18 @@ abstract class AbstractController
     }
 
     /**
+     * Redirect to location
+     *
+     * @param string $url     When want redirect
+     * @param int $statusCode optional Redirect status code
+     */
+    public function redirect(string $url, int $statusCode = null): void
+    {
+        header('Location: ' . $url, true, $statusCode);
+        die();
+    }
+
+    /**
      * Set request is ajax
      */
     public function isAjax(): void
